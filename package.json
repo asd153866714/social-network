@@ -1,0 +1,38 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "金門大學資工系109專題：社群網站",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server/server.js",
+    "serve": "live-server ./client/src",
+    "test": "mocha ./server/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nqu-csie-project/social-network.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asd153866714/social-network/issues"
+  },
+  "homepage": "https://github.com/asd153866714/social-network#readme",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-router": "^9.4.0",
+    "koa-session": "^6.1.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.10.8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "koa-logger": "^3.2.1",
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
+  }
+}
