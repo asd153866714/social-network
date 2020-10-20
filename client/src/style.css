@@ -2,14 +2,40 @@ body {
   background-color: rgb(242, 242, 242);
   color: black;
 }
-nav {
-  margin-bottom: 50px;
-}
+
+/* Navbar */
+/* .navbar-fix {
+  margin-bottom: 20px;
+} */
+
 nav ul a,
 nav .brand-logo {
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0) !important;
 }
 
+/* Login */
 .login-form {
   padding: 20px;
+}
+
+/* Side Bar */
+.collection-item {
+  padding: 20px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.collection a {
+  font-size: 18px;
+  color: black !important;
+}
+
+.collection a:hover {
+  /* background-color: #b2dfdb !important;
+  color: #004d40 !important; */
+}
+
+/* Messages */
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
 }

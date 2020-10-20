@@ -13,17 +13,28 @@ const PORT = process.env.PORT || 3000
 const DB_URL = process.env.DB_URL
 
 // Init middleware
-app.use(cors())
+
 app.use(koaBody())
 app.use(koaLogger())
 
 // Set cookie for session
 app.keys = ['*@&))9kdjafda;983']
 const CONFIG = {
+  key: 'd**@&(_034k3q3&@^(!$!',
   maxAge: 86400000
 }
 app.use(session(CONFIG, app))
 
+app.use(cors({
+  origin: function (ctx) {
+    return 'http://localhost:8080';
+  },
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 5,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}))
 // Init routes
 const authRoutes = require('./routes/auth')
 

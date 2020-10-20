@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon ./server/server.js",
-    "serve": "live-server ./client/src",
+    "server": "live-server --host=localhost ./client/src",
     "test": "mocha ./server/test/"
   },
   "repository": {

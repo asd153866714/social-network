@@ -11,15 +11,13 @@ let view = (
             <form class="white login-form" class="login-form">
                 <h3>Login</h3>
                 <div class="row">
+                    <div id="message" class="input-field col s12">
 
-                </div>
-                <div class="row">
+                    </div>
                     <div class="input-field col s12">
                         <input id="email" type="email" class="validate" required>
                         <label for="email">Email</label>
                     </div>
-                </div>
-                <div class="row">
                     <div class="input-field col s12">
                         <input id="password" type="password" class="validate" required>
                         <label for="password">Password</label>
@@ -51,6 +49,37 @@ let view = (
     `
 )
 
-export let Login = () => {
+let feedBack = (message) => {
+    let messageDiv = document.querySelector('#message')
+    messageDiv.innerHTML = `<span class="red-text">${message}</span>`
+    console.log(message)
+}
+
+export let Login = async () => {
     App.innerHTML = view
+    let loginForm = document.querySelector('.login-form')
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        let userEmail = event.target.email.value,
+            userPwd = event.target.password.value;
+
+        let res = await fetch(`http://localhost:3000/api/auth/login`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: userEmail,
+                password: userPwd
+            }),
+            headers: { 'Content-Type': 'application/json' },
+            credentials: "include",
+        })
+        if (res.status !== 200) {
+            let errorMessage = (await res.json()).message
+            feedBack(errorMessage)
+        } else {
+            localStorage.setItem('isLogin', "true")
+            window.location.hash = '#/home'
+        }
+
+    })
 }

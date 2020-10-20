@@ -50,10 +50,28 @@ let view = (
         </div>
     </div>
 </div>
-
     `
 )
 
-export let Signup = () => {
+export let Signup = async () => {
     App.innerHTML = view
+    let signupForm = document.querySelector('.login-form')
+    signupForm.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        let userEmail = event.target.email.value,
+            userName = event.target.name.value,
+            userPwd = event.target.password.value;
+
+        let res = await fetch(`http://localhost:3000/api/auth/signup`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: userEmail,
+                name: userName,
+                password: userPwd
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        console.log(await res.json())
+    })
 }
