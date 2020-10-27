@@ -1,4 +1,5 @@
 const App = document.querySelector('#app')
+document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="./Login.css">`
 
 let view = (
     `
@@ -57,7 +58,9 @@ let feedBack = (message) => {
 
 export let Login = async () => {
     App.innerHTML = view
+
     let loginForm = document.querySelector('.login-form')
+
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault()
 

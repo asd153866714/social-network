@@ -11,38 +11,86 @@
     <link rel="stylesheet" href="../style.css">
 
     <title>Home</title>
-
     <style>
-        /* Navbar Search */
-        nav .search-bar {
-            padding-top: 8px;
-            width: 20vw;
+        /* aside */
+        @media screen and (max-width: 600px) {
+            aside {
+                display: none !important;
+            }
         }
 
-        nav .search-bar div input[type="text"] {
-            height: 50px;
-            padding-left: 15px;
-            background-color: #f5f5f5;
+
+        /* Main scroll */
+        main.profile-page {
+            height: 91vh;
+            overflow-y: scroll;
         }
 
-        nav .search-bar .search-result {
-            background-color: #fff;
-            color: black;
-            text-align: left;
-            width: 100%;
-            position: absolute;
-            top: 90%;
-            visibility: hidden;
+        /* Description */
+        .description {
+            margin: 10px 0;
+        }
+
+        .description .row .col:nth-child(1) {
+            margin-bottom: 5px;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        .description .row .col img {
+            width: 20%;
+            border-radius: 50%;
+            border: solid 5px white;
+            position: relative;
+            top: -50px;
             z-index: 1;
         }
 
-        nav .search-bar .search-result a {
-            text-decoration: none;
-            padding: 0px 10px;
+        .description .row .col a {
+            width: 20%;
         }
 
-        nav .search-bar input:focus+.search-result {
-            visibility: visible;
+
+        /* Tabs Navbar */
+        main .tab {
+            border-bottom: solid 1px #ccc;
+        }
+
+        .tabs .tab a {
+            color: #000;
+        }
+
+        .tabs .tab a.active {
+            color: #000;
+            background-color: #fff;
+        }
+
+        .tabs .tab a:hover {
+            color: #000;
+            background-color: #ccc;
+        }
+
+        .tabs .tab a:active {
+            color: #000;
+        }
+
+        .tabs .tab a:focus {
+            background-color: #fff;
+        }
+
+        .tabs .tab a:focus.active {
+            color: #000;
+            /*Custom Text Color While Active*/
+            background-color: #fff;
+            /*Custom Background Color While Active*/
+        }
+
+        .tabs .indicator {
+            background-color: #26a69a;
+            /*Custom Color Of Indicator*/
         }
 
     </style>
@@ -51,7 +99,7 @@
 <body>
     <div id="app">
 
-        <!-- Navbar -->
+        <!-- Nav Bar -->
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper white">
@@ -102,12 +150,11 @@
                 </div>
             </nav>
         </div>
-
         <div class="container">
             <div class="row">
 
                 <!-- Sidebar -->
-                <aside class="col s3">
+                <aside class="col s3 hide-on-small-only">
                     <div class="collection">
                         <a href="#!" class="collection-item">
                             <i class="material-icons left">home</i>Home
@@ -127,96 +174,87 @@
                     </div>
                 </aside>
 
-                <!-- Main Posts -->
-                <main class="col s12 l6">
+                <!-- Main -->
+                <main class="profile-page col s12 l6 white">
                     <div class="row">
-                        <div class="card">
 
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col s2">
-                                        <img src="https://www.genmyanmar.org/assets/medium/member.png" alt="avatar"
-                                            style="height: 50px;" class="responsive-img circle valign-wrapper">
-                                    </div>
-                                    <div class="col s10">
-                                        <p>
-                                            Jack123
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <p>
-                                            Test content...
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-image">
-                                <img src="https://materializecss.com/images/sample-1.jpg">
-                                <span class="card-title">Card Title</span>
-                            </div>
+                        <div class="col s12">
+                            <div class="row">
 
-                            <div class="card-action">
-                                <a class="grey-text" href="">2 likes</a>
-                                <a style="float: right;" class="grey-text" href="">1 comments</a>
-                                <br><br>
-                                <div class="divider"></div>
-                                <br>
-                                <div class="row">
-                                    <a class="col s4 offset-s2" href="#">Like</a>
-                                    <a class="col s4" style="float: right;" href="#">Comment</a>
+                                <div class="col s12">
+                                    <div class="row">
+                                        <img class="materialboxed" width="100%" height="250"
+                                            src="https://materializecss.com/images/sample-1.jpg">
+                                    </div>
                                 </div>
+
+                                <div class="col s12 description">
+
+                                    <div class="row">
+
+                                        <div class="col s12">
+
+                                            <img src="https://www.genmyanmar.org/assets/medium/member.png" alt="avatar">
+
+                                            <a class="waves-effect waves-light btn">Button</a>
+
+                                        </div>
+
+
+                                        <div class="col s12">
+                                            <h5>
+                                                Jack James
+                                            </h5>
+                                            <p>
+                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ut, id
+                                                magnam velit adipisci cupiditate cum temporibus vel architecto
+                                                repellendus.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, dolor!
+                                    </p>
+
+
+                                    <a class="waves-effect waves-light btn">Button</a> -->
+
+                                </div>
+
                             </div>
                         </div>
+
+                        <div class="col s12">
+                            <div class="row">
+                                <ul class="tabs">
+                                    <li class="tab col s3"><a href="#test1">Posts</a></li>
+                                    <li class="tab col s3"><a class="active" href="#test2">Friends</a></li>
+                                    <li class="tab col s3"><a href="#test3">Test 1</a></li>
+                                    <li class="tab col s3"><a href="#test4">Test 2</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col s12">
+
+                            <h1>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse illum culpa minus
+                                repellendus cumque dolorem itaque, assumenda quis iusto aspernatur? Est vel, non
+                                eveniet, qui aliquid, pariatur voluptate labore assumenda doloremque nihil nesciunt
+                                amet. Possimus quibusdam inventore et! Iure nihil beatae sapiente, facere, ut,
+                                expedita necessitatibus iste voluptatum quod dolore ratione libero. Veritatis,
+                                aliquam obcaecati eos assumenda ducimus, praesentium sunt laudantium voluptates illo
+                                aliquid ea, reprehenderit consequuntur expedita nihil hic. Dicta architecto,
+                                reiciendis sequi voluptates omnis praesentium rerum natus minus, nostrum perferendis
+                                earum deleniti perspiciatis officiis exercitationem! Quos, vel quas dolorem
+                                voluptatum officiis sint ea architecto corporis consequatur blanditiis error!
+                            </h1>
+
+                        </div>
                     </div>
+
                 </main>
-
-                <div id="main" class="col s12 l6">
-                    <div class="row">
-                        <div class="card">
-
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col s2">
-                                        <img src="https://www.genmyanmar.org/assets/medium/member.png" alt="avatar"
-                                            style="height: 50px;" class="responsive-img circle valign-wrapper">
-                                    </div>
-                                    <div class="col s10">
-                                        <p>
-                                            Jack123
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <p>
-                                            Test content...
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-image">
-                                <img src="https://materializecss.com/images/sample-1.jpg">
-                                <span class="card-title">Card Title</span>
-                            </div>
-
-                            <div class="card-action">
-                                <a class="grey-text" href="">2 likes</a>
-                                <a style="float: right;" class="grey-text" href="">1 comments</a>
-                                <br><br>
-                                <div class="divider"></div>
-                                <br>
-                                <div class="row">
-                                    <a class="col s4 offset-s2" href="#">Like</a>
-                                    <a class="col s4" style="float: right;" href="#">Comment</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
 
 
                 <!-- Suggestion -->

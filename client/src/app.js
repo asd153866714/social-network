@@ -31,6 +31,9 @@ window.onhashchange = () => {
         case 'logout':
             Views.Logout()
             break;
+        case 'profile':
+            Views.Profile()
+            break;
         default:
             Views.Error404()
             break;
